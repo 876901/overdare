@@ -1,0 +1,6 @@
+/User/over
+/User/Lua/LocalScript
+/User/Lua/MorphServerScript
+/User/metadata
+/User/over
+/User/WorldAssetList
