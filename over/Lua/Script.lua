@@ -8,19 +8,30 @@ remoteEvent.OnServerEvent:Connect(function(player, targetObject)
     local rootPart = player.Character:FindFirstChild("HumanoidRootPart")
     if not rootPart then return end
 
+    -- 변신 해제 요청
+    if targetObject == nil then
+        rootPart.Transparency = 0
+        print("[Server] Restored HumanoidRootPart transparency")
+
+        -- 자식 중에 부착된 오브젝트 제거
+        for _, child in ipairs(rootPart:GetChildren()) do
+            if child:IsA("Part") or child:IsA("MeshPart") then
+                child:Destroy()
+                print("[Server] Detached object from player:", player.Name)
+            end
+        end
+        return
+    end
+
+    -- 변신 시작
     if targetObject and (targetObject:IsA("Part") or targetObject:IsA("MeshPart")) then
         print("[Server] Attaching object:", targetObject.Name, "to player:", player.Name)
 
-        -- HumanoidRootPart 투명화
         rootPart.Transparency = 1
         print("[Server] Set HumanoidRootPart transparency to 1")
 
-        -- 충돌 비활성화
         targetObject.CanCollide = false
-
-        -- 부모를 HumanoidRootPart로 변경
         targetObject.Parent = rootPart
-
     else
         print("[Server] Invalid object or not Part/MeshPart")
     end
