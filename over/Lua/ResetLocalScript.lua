@@ -1,5 +1,5 @@
 ﻿local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local remoteEvent = ReplicatedStorage:WaitForChild("AttachRequest")
+local remoteEvent = ReplicatedStorage:WaitForChild("DetachRequest")
 
 script.Parent.Activated:Connect(function()
     print("[Client] Sending reset/morph cancel request")

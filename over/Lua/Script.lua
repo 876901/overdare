@@ -1,6 +1,6 @@
 ﻿local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local remoteEvent = ReplicatedStorage:WaitForChild("AttachRequest")
+local remoteEvent = ReplicatedStorage:WaitForChild("DetachRequest")
 
 remoteEvent.OnServerEvent:Connect(function(player, targetObject)
     if not player.Character then return end
