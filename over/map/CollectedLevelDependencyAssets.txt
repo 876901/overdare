@@ -1,5 +1,0 @@
-/User/map
-/User/Lua/ClimbDisabler
-/User/metadata
-/User/map
-/User/WorldAssetList
